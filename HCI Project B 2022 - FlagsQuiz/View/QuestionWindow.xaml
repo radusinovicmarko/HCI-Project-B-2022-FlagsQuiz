@@ -1,0 +1,106 @@
+﻿<Window x:Class="HCI_Project_B_2022___FlagsQuiz.View.QuestionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:HCI_Project_B_2022___FlagsQuiz.View"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="550" Width="450">
+    <Border CornerRadius="30" Background="#f3533a" BorderBrush="#fa9f42" BorderThickness="3">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button
+                x:Name="btnClose"
+                Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                ToolTip="Close"
+                BorderBrush="#fa9f42"
+                Background="#fa9f42"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="10"
+                Grid.ColumnSpan="2"
+                Click="BtnClose_Click">
+                <materialDesign:PackIcon Kind="CloseCircleOutline" />
+            </Button>
+            <TextBlock
+                x:Name="lbTitle"
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                Text="Question "/>
+            <Image
+                x:Name="imgFlag"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Width="250"
+                Height="120"
+                Grid.ColumnSpan="2"/>
+            <Button
+                x:Name="btnA1"
+                Style="{StaticResource BaseButtonCustomStyle}"
+                Grid.Row="3"
+                Height="55"
+                Click="Click_Next_Medium"/>
+            <Button
+                x:Name="btnA2"
+                Style="{StaticResource BaseButtonCustomStyle}"
+                Grid.Row="3"
+                Grid.Column="2"
+                Height="55"
+                Click="Click_Next_Medium"/>
+            <Button
+                x:Name="btnA3"
+                Style="{StaticResource BaseButtonCustomStyle}"
+                Grid.Row="4"
+                Height="55"
+                Click="Click_Next_Medium"/>
+            <Button
+                x:Name="btnA4"
+                Style="{StaticResource BaseButtonCustomStyle}"
+                Grid.Row="4"
+                Height="55"
+                Grid.Column="2"
+                Click="Click_Next_Medium"/>
+            <TextBox 
+                x:Name="tbAnswer" 
+                Padding="5 10 5 0"
+                Background="#fa9f42"
+                FontSize="14" 
+                Width="200" 
+                Height="40"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="Country"
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                Visibility="Collapsed"
+                KeyDown="TbAnswer_KeyDown"/>
+            <Button
+                x:Name="btnNextHard"
+                Style="{StaticResource ButtonCustomStyle}"
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                Visibility="Collapsed"
+                Content="Next"
+                Click="BtnNextHard_Click" />
+        </Grid>
+    </Border>
+</Window>

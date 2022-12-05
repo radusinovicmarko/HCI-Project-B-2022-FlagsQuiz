@@ -6,14 +6,23 @@
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <Style x:Key="ButtonCustomStyle" BasedOn="{StaticResource MaterialDesignPaperLightButton}" TargetType="Button">
+            <Style x:Key="BaseButtonCustomStyle" BasedOn="{StaticResource MaterialDesignPaperLightButton}" TargetType="Button">
                 <Setter Property="BorderBrush" Value="#fa9f42" />
                 <Setter Property="Background" Value="#fa9f42" />
-                <Setter Property="Height" Value="40" />
                 <Setter Property="Width" Value="200" />
                 <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="10" />
                 <Setter Property="HorizontalAlignment" Value="Center" />
                 <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <TextBlock Text="{TemplateBinding Content}" TextWrapping="Wrap" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="ButtonCustomStyle" BasedOn="{StaticResource BaseButtonCustomStyle}" TargetType="Button">
+                <Setter Property="Height" Value="40" />
             </Style>
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />

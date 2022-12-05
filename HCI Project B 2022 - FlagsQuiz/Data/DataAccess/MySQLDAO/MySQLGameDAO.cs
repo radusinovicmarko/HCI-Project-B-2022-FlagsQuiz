@@ -25,7 +25,7 @@ namespace HCI_Project_B_2022___FlagsQuiz.Data.DataAccess.MySQLDAO
                 cmd = conn.CreateCommand();
                 cmd.CommandText = INSERT;
                 cmd.Parameters.AddWithValue("@noQuestions", item.NumberOfQuestions);
-                cmd.Parameters.AddWithValue("@difficulty", item.Difficulty);
+                cmd.Parameters.AddWithValue("@difficulty", item.Difficulty.ToString());
                 cmd.Parameters.AddWithValue("@time", item.ElapsedTime);
                 cmd.Parameters.AddWithValue("@noCorrect", item.NumberOfCorrectAnswers);
                 cmd.Parameters.AddWithValue("@playerId", item.Player.PlayerId);
@@ -65,7 +65,7 @@ namespace HCI_Project_B_2022___FlagsQuiz.Data.DataAccess.MySQLDAO
                 if (item.Player.PlayerId != null)
                     cmd.Parameters.AddWithValue("@playerId", item.Player.PlayerId);
                 if (item.Difficulty != null)
-                    cmd.Parameters.AddWithValue("@difficulty", item.Difficulty);
+                    cmd.Parameters.AddWithValue("@difficulty", item.Difficulty.ToString());
                 if (item.NumberOfQuestions != null)
                     cmd.Parameters.AddWithValue("@noQuestions", item.NumberOfQuestions);
                 reader = cmd.ExecuteReader();
@@ -117,7 +117,7 @@ namespace HCI_Project_B_2022___FlagsQuiz.Data.DataAccess.MySQLDAO
             {
                 GameId = reader.GetInt32(0),
                 NumberOfQuestions = reader.GetInt32(1),
-                Difficulty = reader.GetString(2),
+                Difficulty = (Difficulty?) Enum.Parse(typeof(Difficulty), reader.GetString(2)),
                 ElapsedTime = reader.GetInt64(3),
                 NumberOfCorrectAnswers = reader.GetInt32(4),
                 Player = new Player()

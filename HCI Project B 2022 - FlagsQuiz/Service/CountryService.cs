@@ -11,7 +11,7 @@ namespace HCI_Project_B_2022___FlagsQuiz.Service
 {
     internal class CountryService
     {
-        private static readonly string endpoint = "https://restcountries.com/v2/all?fields=name,region,flag";
+        private static readonly string endpoint = "https://restcountries.com/v2/all?fields=name,region,flags";
         public List<Country> GetAll()
         {
             RestClient client = new RestClient(endpoint);

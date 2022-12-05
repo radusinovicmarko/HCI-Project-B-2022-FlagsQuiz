@@ -21,7 +21,7 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        private Window previousWindow;
+        private readonly Window previousWindow;
         public RegisterWindow(Window previousWindow)
         {
             InitializeComponent();

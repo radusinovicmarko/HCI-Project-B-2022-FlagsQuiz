@@ -46,10 +46,11 @@
                 Style="{StaticResource MaterialDesignHeadline5TextBlock}"
                 Text="Flags Quiz"/>
             <Button
-                x:Name="btnNewAnonimGame"
+                x:Name="btnNewAnonymousGame"
                 Style="{StaticResource ButtonCustomStyle}"
-                Content="New Anonimous Game"
-                Grid.Row="2"/>
+                Content="New Anonymous Game"
+                Grid.Row="2"
+                Click="New_Game"/>
             <Button
                 x:Name="btnLogin"
                 Style="{StaticResource ButtonCustomStyle}"
@@ -64,7 +65,7 @@
                 x:Name="btnOptions"
                 Style="{StaticResource ButtonCustomStyle}"
                 Content="Options"
-                Grid.Row="5"/>
+                Grid.Row="5" Click="BtnOptions_Click"/>
             <Button
                 x:Name="btnRanking"
                 Style="{StaticResource ButtonCustomStyle}"
@@ -81,7 +82,8 @@
                 Style="{StaticResource ButtonCustomStyle}"
                 Content="New Game"
                 Grid.Row="2"
-                Visibility="Collapsed"/>
+                Visibility="Collapsed"
+                Click="New_Game"/>
             <Button
                 x:Name="btnLogout"
                 Style="{StaticResource ButtonCustomStyle}"

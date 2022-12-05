@@ -1,0 +1,124 @@
+﻿<Window x:Class="HCI_Project_B_2022___FlagsQuiz.View.OptionsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:HCI_Project_B_2022___FlagsQuiz.View"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="550" Width="450">
+    <Border CornerRadius="30" Background="#f3533a" BorderBrush="#fa9f42" BorderThickness="3">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button
+                x:Name="btnClose"
+                Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                ToolTip="Close"
+                BorderBrush="#fa9f42"
+                Background="#fa9f42"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="10"
+                Click="BtnClose_Click">
+                <materialDesign:PackIcon Kind="CloseCircleOutline" />
+            </Button>
+            <Button
+                x:Name="btnBack"
+                Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                ToolTip="Go Back"
+                BorderBrush="#fa9f42"
+                Background="#fa9f42"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="10"
+                Click="BtnBack_Click">
+                <materialDesign:PackIcon Kind="ArrowLeft" />
+            </Button>
+            <TextBlock
+                Grid.Row="0"
+                Margin="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                Text="Options"/>
+            <StackPanel Grid.Row="1" Grid.RowSpan="2" Orientation="Vertical">
+                <TextBlock
+                    Grid.Row="0"
+                    Margin="10"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                    Text="Difficulty"/>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <RadioButton 
+                        Margin="10"
+                        x:Name="rbMedium"
+                        GroupName="difficulty"
+                        Content="Medium"
+                        IsChecked="True"
+                        Background="#fa9f42"
+                        Style="{StaticResource MaterialDesignRadioButton}"/>
+                    <RadioButton 
+                        Margin="10"
+                        x:Name="rbHard"
+                        GroupName="difficulty"
+                        Content="Hard"
+                        Background="#fa9f42"
+                        Style="{StaticResource MaterialDesignRadioButton}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Grid.RowSpan="2" Orientation="Vertical">
+                <TextBlock
+                    Grid.Row="0"
+                    Margin="10"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                    Text="Number Of Questions"/>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <RadioButton 
+                        Margin="10"
+                        x:Name="rb10"
+                        GroupName="noQuestions"
+                        Content="10"
+                        IsChecked="True"
+                        Background="#fa9f42"
+                        Style="{StaticResource MaterialDesignRadioButton}"/>
+                    <RadioButton 
+                        Margin="10"
+                        x:Name="rb25"
+                        GroupName="noQuestions"
+                        Content="25"
+                        Background="#fa9f42"
+                        Style="{StaticResource MaterialDesignRadioButton}"/>
+                    <RadioButton 
+                        Margin="10"
+                        x:Name="rb50"
+                        GroupName="noQuestions"
+                        Content="50"
+                        Background="#fa9f42"
+                        Style="{StaticResource MaterialDesignRadioButton}"/>
+                    <RadioButton 
+                        Margin="10"
+                        x:Name="rb100"
+                        GroupName="noQuestions"
+                        Content="100"
+                        Background="#fa9f42"
+                        Style="{StaticResource MaterialDesignRadioButton}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
