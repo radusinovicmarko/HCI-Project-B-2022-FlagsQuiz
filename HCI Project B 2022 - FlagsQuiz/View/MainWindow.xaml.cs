@@ -27,17 +27,44 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
         private readonly Game newGame = new Game()
         {
             Difficulty = Difficulty.Medium,
-            NumberOfQuestions = 25
+            NumberOfQuestions = 10
         };
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        internal MainWindow(Game game)
+        {
+            InitializeComponent();
+            newGame = new Game()
+            {
+                Difficulty = game.Difficulty,
+                NumberOfQuestions = game.NumberOfQuestions
+            };
+        }
+
         internal MainWindow(Player player)
         {
             InitializeComponent();
             this.player = player;
+            LoadAfterLogin();
+        }
+
+        internal MainWindow(Player player, Game game)
+        {
+            InitializeComponent();
+            this.player = player;
+            newGame = new Game()
+            {
+                Difficulty = game.Difficulty,
+                NumberOfQuestions = game.NumberOfQuestions
+            };
+            LoadAfterLogin();
+        }
+
+        private void LoadAfterLogin()
+        {
             btnNewAnonymousGame.Visibility = Visibility.Collapsed;
             btnLogin.Visibility = Visibility.Collapsed;
             btnRegister.Visibility = Visibility.Collapsed;
@@ -47,7 +74,6 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
             btnOptions.SetValue(Grid.RowProperty, 4);
             btnRanking.SetValue(Grid.RowProperty, 5);
         }
-
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -82,6 +108,18 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
             List<Country> flags = new CountryService().GetAll().OrderBy(f => Guid.NewGuid()).ToList();
             new QuestionWindow(player, 1, flags, newGame, new Stopwatch(), new List<(string, string)>()).Show();
             Close();
+        }
+
+        private void BtnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            new HistoryWindow(this, player).Show();
+            Hide();
+        }
+
+        private void BtnRanking_Click(object sender, RoutedEventArgs e)
+        {
+            new RankingsWindow(this).Show();
+            Hide();
         }
     }
 }

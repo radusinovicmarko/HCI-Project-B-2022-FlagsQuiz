@@ -27,6 +27,16 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
             InitializeComponent();
             this.previousWindow = previousWindow;
             this.game = game;
+            if (game.Difficulty == Difficulty.Medium)
+                rbMedium.IsChecked = true;
+            else if (game.Difficulty == Difficulty.Hard)
+                rbHard.IsChecked = true;
+            if (game.NumberOfQuestions == 10)
+                rb10.IsChecked = true;
+            else if (game.NumberOfQuestions == 25)
+                rb25.IsChecked = true;
+            else if (game.NumberOfQuestions == 50)
+                rb50.IsChecked = true;
         }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
@@ -39,9 +49,7 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
             else if (rb25.IsChecked.Value)
                 game.NumberOfQuestions = 25;
             else if (rb50.IsChecked.Value)
-                game.NumberOfCorrectAnswers = 50;
-            else if (rb100.IsChecked.Value)
-                game.NumberOfQuestions = 100;
+                game.NumberOfQuestions = 50;
             previousWindow.Show();
             Close();
         }

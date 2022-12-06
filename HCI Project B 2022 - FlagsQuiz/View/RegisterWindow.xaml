@@ -67,7 +67,7 @@
                 x:Name="tbUsername"
                 materialDesign:HintAssist.Hint="Username"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                Padding="0 0 0 10"
+                Padding="0 0 0 5"
                 FontSize="14"
                 Grid.Row="3"
                 Height="40"

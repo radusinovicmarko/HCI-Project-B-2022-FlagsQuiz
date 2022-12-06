@@ -46,23 +46,23 @@ namespace HCI_Project_B_2022___FlagsQuiz.Data.DataAccess.MySQLDAO
         public List<Game> Get(Game item)
         {
             string selectQuery = SELECT_ALL;
-            if (item.Player.PlayerId != null)
+            if (item.Player != null && item.Player.PlayerId != null)
                 selectQuery += " AND g.PLAYER_PlayerId=@playerId";
             if (item.Difficulty != null)
                 selectQuery += " AND g.Difficulty=@difficulty";
             if (item.NumberOfQuestions != null)
-                selectQuery += " AND g.NumbereOfQuestions=@noQuestions";
+                selectQuery += " AND g.NumberOfQuestions=@noQuestions";
+            selectQuery += " ORDER BY g.NumberOfCorrectAnswers DESC, g.ElapsedTime ASC";
             List<Game> result = new List<Game>();
             MySqlConnection conn = null;
             MySqlCommand cmd;
             MySqlDataReader reader = null;
-
             try
             {
                 conn = MySQLUtils.GetConnection();
                 cmd = conn.CreateCommand();
                 cmd.CommandText = selectQuery;
-                if (item.Player.PlayerId != null)
+                if (item.Player != null && item.Player.PlayerId != null)
                     cmd.Parameters.AddWithValue("@playerId", item.Player.PlayerId);
                 if (item.Difficulty != null)
                     cmd.Parameters.AddWithValue("@difficulty", item.Difficulty.ToString());
@@ -122,8 +122,8 @@ namespace HCI_Project_B_2022___FlagsQuiz.Data.DataAccess.MySQLDAO
                 NumberOfCorrectAnswers = reader.GetInt32(4),
                 Player = new Player()
                 {
-                    PlayerId = reader.GetInt32(5),
-                    Username = reader.GetString(6)
+                    PlayerId = reader.GetInt32(6),
+                    Username = reader.GetString(7)
                 }
             };
         }

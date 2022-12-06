@@ -55,28 +55,33 @@
                 x:Name="btnLogin"
                 Style="{StaticResource ButtonCustomStyle}"
                 Content="Log In"
-                Grid.Row="3" Click="BtnLogin_Click"/>
+                Grid.Row="3" 
+                Click="BtnLogin_Click"/>
             <Button
                 x:Name="btnRegister"
                 Style="{StaticResource ButtonCustomStyle}"
                 Content="Register"
-                Grid.Row="4" Click="BtnRegister_Click"/>
+                Grid.Row="4" 
+                Click="BtnRegister_Click"/>
             <Button
                 x:Name="btnOptions"
                 Style="{StaticResource ButtonCustomStyle}"
                 Content="Options"
-                Grid.Row="5" Click="BtnOptions_Click"/>
+                Grid.Row="5" 
+                Click="BtnOptions_Click"/>
             <Button
                 x:Name="btnRanking"
                 Style="{StaticResource ButtonCustomStyle}"
                 Content="Rankings"
-                Grid.Row="6"/>
+                Grid.Row="6" 
+                Click="BtnRanking_Click"/>
             <Button
                 x:Name="btnHistory"
                 Style="{StaticResource ButtonCustomStyle}"
                 Content="My History"
                 Grid.Row="3"
-                Visibility="Collapsed"/>
+                Visibility="Collapsed"
+                Click="BtnHistory_Click"/>
             <Button
                 x:Name="btnNewGame"
                 Style="{StaticResource ButtonCustomStyle}"

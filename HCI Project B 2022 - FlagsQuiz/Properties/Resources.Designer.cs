@@ -63,16 +63,6 @@ namespace HCI_Project_B_2022___FlagsQuiz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap globe {
-            get {
-                object obj = ResourceManager.GetObject("globe", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap globe_circle {
             get {
                 object obj = ResourceManager.GetObject("globe_circle", resourceCulture);

@@ -46,7 +46,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Style="{StaticResource MaterialDesignHeadline5TextBlock}"
-                Text="Question "/>
+                Text="Flag "/>
             <Image
                 x:Name="imgFlag"
                 Grid.Row="1"

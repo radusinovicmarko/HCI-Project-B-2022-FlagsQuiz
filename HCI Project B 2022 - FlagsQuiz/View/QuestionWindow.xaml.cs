@@ -30,7 +30,7 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
         private readonly int number;
         private readonly List<Country> flags;
         private readonly Game game;
-        private Button[] buttons;
+        private readonly Button[] buttons;
         private readonly Stopwatch stopwatch;
         private readonly List<(string, string)> answers;
         internal QuestionWindow(Player player, int number, List<Country> flags, Game game, Stopwatch stopwatch, List<(string, string)> answers)
@@ -46,7 +46,7 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
             this.answers = answers;
             buttons = new Button[] { btnA1, btnA2, btnA3, btnA4 };
             country = flags[number - 1];
-            lbTitle.Text += number;
+            lbTitle.Text += number + " / " + game.NumberOfQuestions;
             imgFlag.Source = new BitmapImage(new Uri(country.Flags.Png, UriKind.Absolute));
             if (game.Difficulty == Difficulty.Medium)
                 InitMedium();
@@ -117,9 +117,9 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             if (player == null)
-                new MainWindow().Show();
+                new MainWindow(game).Show();
             else
-                new MainWindow(player).Show();
+                new MainWindow(player, game).Show();
             Close();
         }
 

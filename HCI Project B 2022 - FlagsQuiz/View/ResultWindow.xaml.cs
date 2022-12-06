@@ -22,10 +22,12 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
     public partial class ResultWindow : Window
     {
         private readonly Player player;
+        private readonly Game game;
         internal ResultWindow(Player player, Game game, Stopwatch stopwatch, List<(string, string)> answers)
         {
             InitializeComponent();
             this.player = player;
+            this.game = game;
             textBlockScore.Text = game.NumberOfCorrectAnswers + "/" + game.NumberOfQuestions + " questions correctly answered!";
             textBlockTime.Text += stopwatch.Elapsed.TotalSeconds + " seconds";
             int i = 1;
@@ -40,9 +42,9 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
         private void BtnBackToMain_Click(object sender, RoutedEventArgs e)
         {
             if (player == null)
-                new MainWindow().Show();
+                new MainWindow(game).Show();
             else
-                new MainWindow(player).Show();
+                new MainWindow(player, game).Show();
             Close();
         }
     }
