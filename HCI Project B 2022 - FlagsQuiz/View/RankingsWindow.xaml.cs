@@ -1,5 +1,6 @@
 ﻿using HCI_Project_B_2022___FlagsQuiz.Data.DataAccess.MySQLDAO;
 using HCI_Project_B_2022___FlagsQuiz.Data.Model;
+using HCI_Project_B_2022___FlagsQuiz.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -85,10 +86,5 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
                 MessageBox.Show("An error has occured.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-    }
-
-    internal class RankedGame : Game
-    {
-        public int Rank { get; set; } = 1;
-    }
+    }    
 }

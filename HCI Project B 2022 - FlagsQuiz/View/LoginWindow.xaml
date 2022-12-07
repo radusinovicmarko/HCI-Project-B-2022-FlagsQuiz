@@ -21,6 +21,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="0.5*" />
             </Grid.RowDefinitions>
             <Button

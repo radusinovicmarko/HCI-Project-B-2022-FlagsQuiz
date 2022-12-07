@@ -129,6 +129,7 @@
     <Compile Include="Data\DataAccess\MySQLDAO\MySQLGameDAO.cs" />
     <Compile Include="Data\DataAccess\MySQLDAO\MySQLPlayerDAO.cs" />
     <Compile Include="Service\CountryService.cs" />
+    <Compile Include="ViewModel\RankedGame.cs" />
     <Compile Include="View\AllFlagsWindow.xaml.cs">
       <DependentUpon>AllFlagsWindow.xaml</DependentUpon>
     </Compile>
