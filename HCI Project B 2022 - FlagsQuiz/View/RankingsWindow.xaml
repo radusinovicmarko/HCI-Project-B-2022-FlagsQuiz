@@ -10,7 +10,7 @@
         AllowsTransparency="True"
         Background="Transparent"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="550" Width="450">
+        Height="550" Width="450">
     <Window.Resources>
         <local:CustomBindingConverter x:Key="TimeBindingConverter" />
     </Window.Resources>

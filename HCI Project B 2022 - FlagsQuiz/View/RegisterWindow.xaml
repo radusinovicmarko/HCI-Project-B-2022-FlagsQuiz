@@ -10,7 +10,7 @@
         AllowsTransparency="True"
         Background="Transparent"
         WindowStartupLocation="CenterScreen"
-        Title="Register" Height="550" Width="450">
+        Height="550" Width="450">
     <Border CornerRadius="30" Background="#f3533a" BorderBrush="#fa9f42" BorderThickness="3">
         <Grid>
             <Grid.RowDefinitions>

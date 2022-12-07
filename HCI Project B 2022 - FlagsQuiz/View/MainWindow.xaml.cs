@@ -73,10 +73,11 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
             btnLogout.Visibility = Visibility.Visible;
             btnOptions.SetValue(Grid.RowProperty, 4);
             btnRanking.SetValue(Grid.RowProperty, 5);
+            btnAllFlags.SetValue(Grid.RowProperty, 6);
         }
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Application.Current.Shutdown();
         }
 
         private void BtnRegister_Click(object sender, RoutedEventArgs e)
@@ -105,21 +106,55 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
 
         private void New_Game(object sender, RoutedEventArgs e)
         {
-            List<Country> flags = new CountryService().GetAll().OrderBy(f => Guid.NewGuid()).ToList();
-            new QuestionWindow(player, 1, flags, newGame, new Stopwatch(), new List<(string, string)>()).Show();
-            Close();
+            try
+            {
+                List<Country> flags = new CountryService().GetAll().OrderBy(f => Guid.NewGuid()).ToList();
+                new QuestionWindow(player, 1, flags, newGame, new Stopwatch(), new List<(string, string)>()).Show();
+                Close();
+            } 
+            catch (Exception)
+            {
+                MessageBox.Show("An error has occured. Check your internet connection.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void BtnHistory_Click(object sender, RoutedEventArgs e)
         {
-            new HistoryWindow(this, player).Show();
-            Hide();
+            try
+            {
+                new HistoryWindow(this, player).Show();
+                Hide();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An error has occured.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void BtnRanking_Click(object sender, RoutedEventArgs e)
         {
-            new RankingsWindow(this).Show();
-            Hide();
+            try
+            {
+                new RankingsWindow(this).Show();
+                Hide();
+            } 
+            catch (Exception) 
+            {
+                MessageBox.Show("An error has occured.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void BtnAllFlags_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                List<Country> flags = new CountryService().GetAll();
+                new AllFlagsWindow(this, flags).Show();
+                Hide();
+            } catch (Exception)
+            {
+                MessageBox.Show("An error has occured. Check your internet connection.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

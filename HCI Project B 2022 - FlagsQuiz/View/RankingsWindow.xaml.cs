@@ -32,28 +32,20 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
 
         private void LoadRankings()
         {
-            try
+            var list = new MySQLGameDAO().Get(GetRankingFilters());
+            List<RankedGame> rankedList = new List<RankedGame>();
+            int i = 1;
+            list.ForEach(g => rankedList.Add(new RankedGame()
             {
-                var list = new MySQLGameDAO().Get(GetRankingFilters());
-                List<RankedGame> rankedList = new List<RankedGame>();
-                int i = 1;
-                list.ForEach(g => rankedList.Add(new RankedGame()
-                {
-                    GameId = g.GameId,
-                    NumberOfCorrectAnswers = g.NumberOfCorrectAnswers,
-                    NumberOfQuestions = g.NumberOfQuestions,
-                    ElapsedTime = g.ElapsedTime,
-                    Difficulty = g.Difficulty,
-                    Player = g.Player,
-                    Rank = i++
-                }));
-                DataContext = new { Items =  rankedList };
-            } catch (Exception)
-            {
-                MessageBox.Show("An error has occured.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                //previousWindow.Show();
-                //Close();
-            }
+                GameId = g.GameId,
+                NumberOfCorrectAnswers = g.NumberOfCorrectAnswers,
+                NumberOfQuestions = g.NumberOfQuestions,
+                ElapsedTime = g.ElapsedTime,
+                Difficulty = g.Difficulty,
+                Player = g.Player,
+                Rank = i++
+            }));
+            DataContext = new { Items = rankedList };
         }
 
         private Game GetRankingFilters()
@@ -85,7 +77,13 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
 
         private void Rb_Clicked(object sender, RoutedEventArgs e)
         {
-            LoadRankings();
+            try
+            {
+                LoadRankings();
+            } catch (Exception)
+            {
+                MessageBox.Show("An error has occured.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 

@@ -1,8 +1,7 @@
-﻿using HCI_Project_B_2022___FlagsQuiz.Data.DataAccess.MySQLDAO;
-using HCI_Project_B_2022___FlagsQuiz.Data.Model;
+﻿using HCI_Project_B_2022___FlagsQuiz.Data.Model;
+using HCI_Project_B_2022___FlagsQuiz.Service;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,18 +17,17 @@ using System.Windows.Shapes;
 namespace HCI_Project_B_2022___FlagsQuiz.View
 {
     /// <summary>
-    /// Interaction logic for HistoryWindow.xaml
+    /// Interaction logic for AllFlagsWindow.xaml
     /// </summary>
-    public partial class HistoryWindow : Window
+    public partial class AllFlagsWindow : Window
     {
         private readonly Window previousWindow;
-        internal HistoryWindow(Window previousWindow, Player player)
+        internal AllFlagsWindow(Window previousWindow, List<Country> allFlags)
         {
             InitializeComponent();
             this.previousWindow = previousWindow;
-            DataContext = new { Items = new MySQLGameDAO().Get(new Game() { Player = player }) };
+            DataContext = new { Items = allFlags };
         }
-
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             previousWindow.Show();
@@ -39,19 +37,6 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-        }
-    }
-
-    internal class CustomBindingConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return (double)(1.0 * ((long)value) / 1000);
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
         }
     }
 }

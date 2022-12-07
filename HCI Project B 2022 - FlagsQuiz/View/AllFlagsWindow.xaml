@@ -1,4 +1,4 @@
-﻿<Window x:Class="HCI_Project_B_2022___FlagsQuiz.View.HistoryWindow"
+﻿<Window x:Class="HCI_Project_B_2022___FlagsQuiz.View.AllFlagsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,19 +11,17 @@
         Background="Transparent"
         WindowStartupLocation="CenterScreen"
         Height="550" Width="450">
-    <Window.Resources>
-        <local:CustomBindingConverter x:Key="CustomBindingConverter" />
-    </Window.Resources>
     <Border CornerRadius="30" Background="#f3533a" BorderBrush="#fa9f42" BorderThickness="3">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
+                <RowDefinition Height="0.5*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="0.5*" />
             </Grid.RowDefinitions>
             <Button
                 x:Name="btnClose"
@@ -55,32 +53,35 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 Style="{StaticResource MaterialDesignHeadline5TextBlock}"
-                Text="History"/>
-            <DataGrid 
-                x:Name="dgHistory"
-                Cursor="Hand"
-                ItemsSource="{Binding Items}" 
-                AutoGenerateColumns="False"
-                CanUserAddRows="False"
-                CanUserDeleteRows="False"
-                Grid.Row="1"
-                Grid.RowSpan="5"
-                Width="400"
-                BorderThickness="1"
-                Background="#fa9f42">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Width="*" IsReadOnly="True" Header="Correct Answers">
-                        <DataGridTextColumn.Binding>
-                            <MultiBinding StringFormat="{}{0} / {1}">
-                                <Binding Path="NumberOfCorrectAnswers"/>
-                                <Binding Path="NumberOfQuestions"/>
-                            </MultiBinding>
-                        </DataGridTextColumn.Binding>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Width="*" IsReadOnly="True" Header="Elapsed Time [s]" Binding="{Binding ElapsedTime, Converter={StaticResource CustomBindingConverter}}" />
-                    <DataGridTextColumn Width="*" IsReadOnly="True" Header="Difficulty" Binding="{Binding Difficulty}" />
-                </DataGrid.Columns>
-            </DataGrid>
+                Text="All Flags"/>
+            <ListBox
+                x:Name="listFlags"
+                materialDesign:ListBoxItemAssist.ShowSelection="False"
+                Width="350"
+                Background="Transparent"
+                ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                Grid.Row="2"
+                Grid.RowSpan="4"
+                ItemsSource="{Binding Items}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image 
+                                Source="{Binding Flags.Png}"
+                                Height="75"
+                                Width="110"/>
+                            <TextBlock
+                                Text="{Binding Name}"
+                                TextWrapping="Wrap"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="10 0 0 0"
+                                FontSize="14"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
     </Border>
 </Window>

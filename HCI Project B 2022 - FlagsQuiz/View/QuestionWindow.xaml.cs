@@ -107,7 +107,10 @@ namespace HCI_Project_B_2022___FlagsQuiz.View
                     {
                         new MySQLGameDAO().Add(game);
                     }
-                    catch (Exception) { }
+                    catch (Exception) 
+                    {
+                        MessageBox.Show("An error has occured while saving your score.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
                 new ResultWindow(player, game, stopwatch, answers).Show();
                 Close();

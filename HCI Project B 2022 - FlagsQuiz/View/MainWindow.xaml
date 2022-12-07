@@ -10,11 +10,12 @@
         AllowsTransparency="True"
         Background="Transparent"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="550" Width="450">
+        Height="550" Width="450">
     <Border CornerRadius="30" Background="#f3533a" BorderBrush="#fa9f42" BorderThickness="3">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -76,6 +77,12 @@
                 Grid.Row="6" 
                 Click="BtnRanking_Click"/>
             <Button
+                x:Name="btnAllFlags"
+                Style="{StaticResource ButtonCustomStyle}"
+                Content="All Flags"
+                Grid.Row="7" 
+                Click="BtnAllFlags_Click"/>
+            <Button
                 x:Name="btnHistory"
                 Style="{StaticResource ButtonCustomStyle}"
                 Content="My History"
@@ -93,7 +100,7 @@
                 x:Name="btnLogout"
                 Style="{StaticResource ButtonCustomStyle}"
                 Content="Log Out"
-                Grid.Row="6"
+                Grid.Row="7"
                 Visibility="Collapsed"
                 Click="BtnLogout_Click"/>
         </Grid>

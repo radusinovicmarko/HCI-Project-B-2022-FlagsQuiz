@@ -129,6 +129,9 @@
     <Compile Include="Data\DataAccess\MySQLDAO\MySQLGameDAO.cs" />
     <Compile Include="Data\DataAccess\MySQLDAO\MySQLPlayerDAO.cs" />
     <Compile Include="Service\CountryService.cs" />
+    <Compile Include="View\AllFlagsWindow.xaml.cs">
+      <DependentUpon>AllFlagsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HistoryWindow.xaml.cs">
       <DependentUpon>HistoryWindow.xaml</DependentUpon>
     </Compile>
@@ -162,6 +165,10 @@
     <Compile Include="View\ResultWindow.xaml.cs">
       <DependentUpon>ResultWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\AllFlagsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\HistoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
